@@ -12,6 +12,7 @@ let formula
 let fahrenheit
 let celcius 
 let kelvin 
+
 LeftSideData.addEventListener("change", () => {
     LeftVal()
 })
@@ -41,7 +42,7 @@ const LeftVal = () => {
         UserValueRight.value = fahrenheit
         FormulaDisplay()
 
-    } else if (LeftSideData.value === "DegreeCelsius" && RightSideData.value === "DegreeCelsius" || RightSideData.value === "DegreeCelsius" && LeftSideData.value === "DegreeCelsius") {
+    } else if (LeftSideData.value === "DegreeCelsius" && RightSideData.value === "DegreeCelsius" ) {
         LeftSideData.value = "fahrenheit"
         RightSideData.value = "DegreeCelsius"
         celcius = (UserValueLeftValue - 32 ) * 5/9
@@ -81,8 +82,25 @@ UserValueLeft.addEventListener("input", () => {
    LeftVal()
 })
 
+
+const RightVal = () => {
+    UserValueRightValue = Number(UserValueRight.value)
+   if (!UserValueRightValue) return UserValueLeft.value = 0
+    
+   if (LeftSideData.value === "DegreeCelsius" && RightSideData.value === "fahrenheit") {
+    celcius = (UserValueRightValue - 32 ) * 5/9
+    formula = `(${UserValueRightValue}˚F - 32) * 5/9`
+    UserValueLeft.value = celcius
+    FormulaDisplay()
+   } else if (LeftSideData.value === "fahrenheit" && RightSideData.value === "DegreeCelsius") {
+    fahrenheit = (UserValueRightValue * 9/5) + 32
+    formula = `(${UserValueRightValue}˚C * 9/5) + 32`
+    UserValueLeft.value = fahrenheit
+    FormulaDisplay()
+   } 
+}
 UserValueRight.addEventListener("input", () => {
-   UserValueRightValue = Number(UserValueRight.value)
+   RightVal()
 })
 const FormulaDisplay = () => {
     ShowFormula.innerHTML = formula
