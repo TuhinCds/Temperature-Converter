@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="container-wraper">
+            <div class="inputs">
+                <div class="LeftContent">
+                    <input type="number" placeholder="0" id="UserValueLeft">
+                    <select name="" id="LeftSideData">
+                        <option value="fahrenheit">Fahrenheit</option>
+                        <option value="DegreeCelsius" selected>Degree Celsius</option>
+                        <option value="Kelvin">Kelvin</option>
+                    </select>
+                </div>
+                <p class="equalSign">=</p>
+                <div class="RightContent">
+                    <input type="number" placeholder="0" id="UserValueRight">
+                    <select name="" id="RightSideData">
+                        <option value="DegreeCelsius">Degree Celsius</option>
+                        <option value="fahrenheit" selected>Fahrenheit</option >
+                        <option value="Kelvin">Kelvin</option>
+                    </select>
+                </div>
+            </div>
+            <div class="formulas">
+                <p>Formula</p>
+                <p id="ShowFormula">(4˚C * 9/5) + 32 = 37.4˚F</p>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
